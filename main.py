@@ -1,8 +1,8 @@
 # different languages to use powershell, and python. Couldve used typescript but found pyhton is better and easiert to get started
 import csv
 import datetime
-import pytz
-import rfc3339
+import pytz # needed for timezone conversion
+import rfc3339 # needed for format
 import sys
 
 
@@ -28,14 +28,14 @@ def name_transform (name):
 
 
 def foo_transform (foo):
-    h,m,s,ms = foo.replace('.',':').split(':') #what to do with milli seconds?
+    h,m,s,ms = foo.replace('.',':').split(':')
     ms = float('.' + ms)
 
     return float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds()) + ms
 
 
 def bar_transform (bar):
-    h,m,s,ms = bar.replace('.',':').split(':') #what to do with milli seconds?
+    h,m,s,ms = bar.replace('.',':').split(':')
     ms = float('.' + ms)
     
     return float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds()) + ms
