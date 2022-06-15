@@ -29,14 +29,16 @@ def name_transform (name):
 
 def foo_transform (foo):
     h,m,s,ms = foo.replace('.',':').split(':') #what to do with milli seconds?
+    ms = float('.' + ms)
 
-    return int(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds())
+    return float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds()) + ms
 
 
 def bar_transform (bar):
     h,m,s,ms = bar.replace('.',':').split(':') #what to do with milli seconds?
+    ms = float('.' + ms)
     
-    return int(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds())
+    return float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds()) + ms
 
 
 def totalDuration_transform (foo, bar):
